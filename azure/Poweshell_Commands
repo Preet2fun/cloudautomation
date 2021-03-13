@@ -1,0 +1,16 @@
+# Login to azure account
+Connect-AzAccount
+Connect-AzAccount -Tenant '7b30cebf-1574-4b7a-87bc-f26a238cfd00' (for connecting specific tenent)
+
+#to install specific module
+Install-Module AzureAD
+
+#to get already installed module
+Get-InstalledModule
+
+# Create new uesr
+install-module azuread
+import-module azuread
+$PasswordProfile = New-Object -TypeName Microsoft.Open.AzureAD.Model.PasswordProfile
+$PasswordProfile.Password = "Zalak151291@"
+New-AzureADUser -AccountEnabled $True -DisplayName "Abby Brown" -PasswordProfile $PasswordProfile -MailNickName "AbbyB" -UserPrincipalName "AbbyB@contoso.com"
