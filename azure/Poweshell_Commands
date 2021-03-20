@@ -14,3 +14,11 @@ import-module azuread
 $PasswordProfile = New-Object -TypeName Microsoft.Open.AzureAD.Model.PasswordProfile
 $PasswordProfile.Password = "Zalak151291@"
 New-AzureADUser -AccountEnabled $True -DisplayName "Abby Brown" -PasswordProfile $PasswordProfile -MailNickName "AbbyB" -UserPrincipalName "AbbyB@contoso.com"
+
+#To get size of all VM in perticular region
+Get-AzVMSize -Location EastUS | Where NumberOfCores -EQ '8' 
+
+# To know images for VM
+Get-AzureVMImage |
+Where-Object ImageName -like *centos* |
+Select-Object -Property ImageName

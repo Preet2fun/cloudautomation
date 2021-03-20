@@ -9,3 +9,9 @@ New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Location $location `
   -SkuName Standard_LRS `
   -Kind StorageV2
+
+
+# Get last sync time for replication status
+$lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName Azure-Exam-demo `
+    -Name geodatareplication `
+    -IncludeGeoReplicationStats).GeoReplicationStats.LastSyncTime
