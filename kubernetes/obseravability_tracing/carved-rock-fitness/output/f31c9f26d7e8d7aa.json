@@ -1,0 +1,442 @@
+{
+    "data": [
+        {
+            "traceID": "f31c9f26d7e8d7aa",
+            "spans": [
+                {
+                    "traceID": "f31c9f26d7e8d7aa",
+                    "spanID": "f9e2458e547f116c",
+                    "flags": 1,
+                    "operationName": "calculateScore",
+                    "references": [
+                        {
+                            "refType": "CHILD_OF",
+                            "traceID": "f31c9f26d7e8d7aa",
+                            "spanID": "8d9da95f2fd224ff"
+                        }
+                    ],
+                    "startTime": 1618572574455243,
+                    "duration": 32,
+                    "tags": [
+                        {
+                            "key": "internal.span.format",
+                            "type": "string",
+                            "value": "proto"
+                        }
+                    ],
+                    "logs": [],
+                    "processID": "p1",
+                    "warnings": null
+                },
+                {
+                    "traceID": "f31c9f26d7e8d7aa",
+                    "spanID": "8d9da95f2fd224ff",
+                    "flags": 1,
+                    "operationName": "processRun",
+                    "references": [
+                        {
+                            "refType": "CHILD_OF",
+                            "traceID": "f31c9f26d7e8d7aa",
+                            "spanID": "9f0b78c7f30e9610"
+                        }
+                    ],
+                    "startTime": 1618572574454420,
+                    "duration": 26816,
+                    "tags": [
+                        {
+                            "key": "error",
+                            "type": "bool",
+                            "value": true
+                        },
+                        {
+                            "key": "internal.span.format",
+                            "type": "string",
+                            "value": "proto"
+                        }
+                    ],
+                    "logs": [
+                        {
+                            "timestamp": 1618572574480765,
+                            "fields": [
+                                {
+                                    "key": "event",
+                                    "type": "string",
+                                    "value": "error"
+                                },
+                                {
+                                    "key": "error.kind",
+                                    "type": "string",
+                                    "value": "\u003cclass 'redis.exceptions.ConnectionError'\u003e"
+                                },
+                                {
+                                    "key": "error.object",
+                                    "type": "string",
+                                    "value": "Error -2 connecting to impressive-spaniel-redis-master:6379. Name does not resolve."
+                                },
+                                {
+                                    "key": "message",
+                                    "type": "string",
+                                    "value": "Error -2 connecting to impressive-spaniel-redis-master:6379. Name does not resolve."
+                                },
+                                {
+                                    "key": "stack",
+                                    "type": "string",
+                                    "value": "  File \"/app/main.py\", line 54, in main\n    r.set(workout_id, json.dumps(content))\n  File \"/usr/lib/python3.8/site-packages/redis/client.py\", line 1801, in set\n    return self.execute_command('SET', *pieces)\n  File \"/usr/lib/python3.8/site-packages/redis/client.py\", line 898, in execute_command\n    conn = self.connection or pool.get_connection(command_name, **options)\n  File \"/usr/lib/python3.8/site-packages/redis/connection.py\", line 1192, in get_connection\n    connection.connect()\n  File \"/usr/lib/python3.8/site-packages/redis/connection.py\", line 563, in connect\n    raise ConnectionError(self._error_message(e))\n"
+                                }
+                            ]
+                        }
+                    ],
+                    "processID": "p1",
+                    "warnings": null
+                },
+                {
+                    "traceID": "f31c9f26d7e8d7aa",
+                    "spanID": "4da8a2a7a710e820",
+                    "flags": 1,
+                    "operationName": "validatePayload",
+                    "references": [
+                        {
+                            "refType": "CHILD_OF",
+                            "traceID": "f31c9f26d7e8d7aa",
+                            "spanID": "8d9da95f2fd224ff"
+                        }
+                    ],
+                    "startTime": 1618572574454654,
+                    "duration": 259,
+                    "tags": [
+                        {
+                            "key": "internal.span.format",
+                            "type": "string",
+                            "value": "proto"
+                        }
+                    ],
+                    "logs": [],
+                    "processID": "p1",
+                    "warnings": null
+                },
+                {
+                    "traceID": "f31c9f26d7e8d7aa",
+                    "spanID": "97a29666e17b92fd",
+                    "flags": 1,
+                    "operationName": "storeRun",
+                    "references": [
+                        {
+                            "refType": "CHILD_OF",
+                            "traceID": "f31c9f26d7e8d7aa",
+                            "spanID": "8d9da95f2fd224ff"
+                        }
+                    ],
+                    "startTime": 1618572574455346,
+                    "duration": 25334,
+                    "tags": [
+                        {
+                            "key": "error",
+                            "type": "bool",
+                            "value": true
+                        },
+                        {
+                            "key": "internal.span.format",
+                            "type": "string",
+                            "value": "proto"
+                        }
+                    ],
+                    "logs": [
+                        {
+                            "timestamp": 1618572574480453,
+                            "fields": [
+                                {
+                                    "key": "event",
+                                    "type": "string",
+                                    "value": "error"
+                                },
+                                {
+                                    "key": "error.kind",
+                                    "type": "string",
+                                    "value": "\u003cclass 'redis.exceptions.ConnectionError'\u003e"
+                                },
+                                {
+                                    "key": "error.object",
+                                    "type": "string",
+                                    "value": "Error -2 connecting to impressive-spaniel-redis-master:6379. Name does not resolve."
+                                },
+                                {
+                                    "key": "message",
+                                    "type": "string",
+                                    "value": "Error -2 connecting to impressive-spaniel-redis-master:6379. Name does not resolve."
+                                },
+                                {
+                                    "key": "stack",
+                                    "type": "string",
+                                    "value": "  File \"/app/main.py\", line 54, in main\n    r.set(workout_id, json.dumps(content))\n  File \"/usr/lib/python3.8/site-packages/redis/client.py\", line 1801, in set\n    return self.execute_command('SET', *pieces)\n  File \"/usr/lib/python3.8/site-packages/redis/client.py\", line 898, in execute_command\n    conn = self.connection or pool.get_connection(command_name, **options)\n  File \"/usr/lib/python3.8/site-packages/redis/connection.py\", line 1192, in get_connection\n    connection.connect()\n  File \"/usr/lib/python3.8/site-packages/redis/connection.py\", line 563, in connect\n    raise ConnectionError(self._error_message(e))\n"
+                                }
+                            ]
+                        }
+                    ],
+                    "processID": "p1",
+                    "warnings": null
+                },
+                {
+                    "traceID": "f31c9f26d7e8d7aa",
+                    "spanID": "bf34df395b7829a3",
+                    "flags": 1,
+                    "operationName": "processWorkout",
+                    "references": [],
+                    "startTime": 1618572574447411,
+                    "duration": 62270,
+                    "tags": [
+                        {
+                            "key": "sampler.type",
+                            "type": "string",
+                            "value": "const"
+                        },
+                        {
+                            "key": "sampler.param",
+                            "type": "bool",
+                            "value": true
+                        },
+                        {
+                            "key": "internal.span.format",
+                            "type": "string",
+                            "value": "proto"
+                        }
+                    ],
+                    "logs": [],
+                    "processID": "p2",
+                    "warnings": null
+                },
+                {
+                    "traceID": "f31c9f26d7e8d7aa",
+                    "spanID": "04b94ec13076ea40",
+                    "flags": 1,
+                    "operationName": "validatePayload",
+                    "references": [
+                        {
+                            "refType": "CHILD_OF",
+                            "traceID": "f31c9f26d7e8d7aa",
+                            "spanID": "bf34df395b7829a3"
+                        }
+                    ],
+                    "startTime": 1618572574447527,
+                    "duration": 205,
+                    "tags": [
+                        {
+                            "key": "internal.span.format",
+                            "type": "string",
+                            "value": "proto"
+                        }
+                    ],
+                    "logs": [],
+                    "processID": "p2",
+                    "warnings": null
+                },
+                {
+                    "traceID": "f31c9f26d7e8d7aa",
+                    "spanID": "3b99bec5ea8712ed",
+                    "flags": 1,
+                    "operationName": "prepare",
+                    "references": [
+                        {
+                            "refType": "CHILD_OF",
+                            "traceID": "f31c9f26d7e8d7aa",
+                            "spanID": "85adfad7fab88e34"
+                        }
+                    ],
+                    "startTime": 1618572574447852,
+                    "duration": 53,
+                    "tags": [
+                        {
+                            "key": "internal.span.format",
+                            "type": "string",
+                            "value": "proto"
+                        }
+                    ],
+                    "logs": [],
+                    "processID": "p2",
+                    "warnings": null
+                },
+                {
+                    "traceID": "f31c9f26d7e8d7aa",
+                    "spanID": "9f0b78c7f30e9610",
+                    "flags": 1,
+                    "operationName": "call downstream",
+                    "references": [
+                        {
+                            "refType": "CHILD_OF",
+                            "traceID": "f31c9f26d7e8d7aa",
+                            "spanID": "85adfad7fab88e34"
+                        }
+                    ],
+                    "startTime": 1618572574447960,
+                    "duration": 61457,
+                    "tags": [
+                        {
+                            "key": "internal.span.format",
+                            "type": "string",
+                            "value": "proto"
+                        }
+                    ],
+                    "logs": [],
+                    "processID": "p2",
+                    "warnings": null
+                },
+                {
+                    "traceID": "f31c9f26d7e8d7aa",
+                    "spanID": "e885c30afc00c7d3",
+                    "flags": 1,
+                    "operationName": "postprocess",
+                    "references": [
+                        {
+                            "refType": "CHILD_OF",
+                            "traceID": "f31c9f26d7e8d7aa",
+                            "spanID": "85adfad7fab88e34"
+                        }
+                    ],
+                    "startTime": 1618572574509524,
+                    "duration": 70,
+                    "tags": [
+                        {
+                            "key": "internal.span.format",
+                            "type": "string",
+                            "value": "proto"
+                        }
+                    ],
+                    "logs": [],
+                    "processID": "p2",
+                    "warnings": null
+                },
+                {
+                    "traceID": "f31c9f26d7e8d7aa",
+                    "spanID": "85adfad7fab88e34",
+                    "flags": 1,
+                    "operationName": "process",
+                    "references": [
+                        {
+                            "refType": "CHILD_OF",
+                            "traceID": "f31c9f26d7e8d7aa",
+                            "spanID": "bf34df395b7829a3"
+                        }
+                    ],
+                    "startTime": 1618572574447820,
+                    "duration": 61822,
+                    "tags": [
+                        {
+                            "key": "internal.span.format",
+                            "type": "string",
+                            "value": "proto"
+                        }
+                    ],
+                    "logs": [],
+                    "processID": "p2",
+                    "warnings": null
+                }
+            ],
+            "processes": {
+                "p1": {
+                    "serviceName": "run-controller",
+                    "tags": [
+                        {
+                            "key": "cluster",
+                            "type": "string",
+                            "value": "undefined"
+                        },
+                        {
+                            "key": "container.name",
+                            "type": "string",
+                            "value": "run-controller"
+                        },
+                        {
+                            "key": "deployment.name",
+                            "type": "string",
+                            "value": "run-controller"
+                        },
+                        {
+                            "key": "host.ip",
+                            "type": "string",
+                            "value": "10.100.200.12"
+                        },
+                        {
+                            "key": "hostname",
+                            "type": "string",
+                            "value": "run-controller-6d948ccb68-58xc5"
+                        },
+                        {
+                            "key": "ip",
+                            "type": "string",
+                            "value": "10.244.1.11"
+                        },
+                        {
+                            "key": "jaeger.version",
+                            "type": "string",
+                            "value": "Python-4.4.0"
+                        },
+                        {
+                            "key": "pod.name",
+                            "type": "string",
+                            "value": "run-controller-6d948ccb68-58xc5"
+                        },
+                        {
+                            "key": "pod.namespace",
+                            "type": "string",
+                            "value": "default"
+                        }
+                    ]
+                },
+                "p2": {
+                    "serviceName": "workout-gateway",
+                    "tags": [
+                        {
+                            "key": "cluster",
+                            "type": "string",
+                            "value": "undefined"
+                        },
+                        {
+                            "key": "container.name",
+                            "type": "string",
+                            "value": "workout-gateway"
+                        },
+                        {
+                            "key": "deployment.name",
+                            "type": "string",
+                            "value": "workout-gateway"
+                        },
+                        {
+                            "key": "host.ip",
+                            "type": "string",
+                            "value": "10.100.200.12"
+                        },
+                        {
+                            "key": "hostname",
+                            "type": "string",
+                            "value": "workout-gateway-77ddbb554b-tq97d"
+                        },
+                        {
+                            "key": "ip",
+                            "type": "string",
+                            "value": "10.244.1.10"
+                        },
+                        {
+                            "key": "jaeger.version",
+                            "type": "string",
+                            "value": "Python-4.4.0"
+                        },
+                        {
+                            "key": "pod.name",
+                            "type": "string",
+                            "value": "workout-gateway-77ddbb554b-tq97d"
+                        },
+                        {
+                            "key": "pod.namespace",
+                            "type": "string",
+                            "value": "default"
+                        }
+                    ]
+                }
+            },
+            "warnings": null
+        }
+    ],
+    "total": 0,
+    "limit": 0,
+    "offset": 0,
+    "errors": null
+}
