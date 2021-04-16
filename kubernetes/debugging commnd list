@@ -1,0 +1,66 @@
+# to see log of specific pod and conatiner in it
+kubectl logs $(kubectl get pod -l app=run-controller -o jsonpath="{.items[0].metadata.name}") run-controller
+$(kubectl get pod -l app=run-controller -o jsonpath="{.items[0].metadata.name}") --> pod name
+run-controller --> contianer name
+
+Examples:
+  # Return snapshot logs from pod nginx with only one container
+  kubectl logs nginx
+  
+  # Return snapshot logs from pod nginx with multi containers
+  kubectl logs nginx --all-containers=true
+  
+  # Return snapshot logs from all containers in pods defined by label app=nginx
+  kubectl logs -lapp=nginx --all-containers=true
+  
+  # Return snapshot of previous terminated ruby container logs from pod web-1
+  kubectl logs -p -c ruby web-1
+  
+  # Begin streaming the logs of the ruby container in pod web-1
+  kubectl logs -f -c ruby web-1
+  
+  # Begin streaming the logs from all containers in pods defined by label app=nginx
+  kubectl logs -f -lapp=nginx --all-containers=true
+  
+  # Display only the most recent 20 lines of output in pod nginx
+  kubectl logs --tail=20 nginx
+  
+  # Show all logs from pod nginx written in the last hour
+  kubectl logs --since=1h nginx
+  
+  # Show logs from a kubelet with an expired serving certificate
+  kubectl logs --insecure-skip-tls-verify-backend nginx
+  
+  # Return snapshot logs from first container of a job named hello
+  kubectl logs job/hello
+  
+  # Return snapshot logs from container nginx-1 of a deployment named nginx
+  kubectl logs deployment/nginx -c nginx-1
+
+kubectl logs --since=24h workout-gateway-74558699cf-z9xcz
+kubectl logs --tail=5 workout-gateway-74558699cf-z9xcz
+
+ # to see live log as soon as it process we can use below command
+ kubectl logs -f workout-gateway-74558699cf-z9xcz
+ kubectl logs --follow workout-gateway-74558699cf-z9xcz
+
+
+ for controll plane events in kubernetes use below command
+
+ kubectl get events
+ kubectl get events --help
+ kubectl get events --field-selector involvedObject.kind=node
+ kubectl get events --field-selector type=Warning, involvedObject.kind=node
+ kubectl get events --field-selector type!=Normal
+ kubectl get events --field-selector involvedObject.name=pod/run-controller-9877dbdb-kkb9v
+ kubectl get events --field-selector involvedObject.kind!=pod
+
+
+ for geeting cpu and memory data of pod and node please use below commnd
+ kubectl top pod
+ kubectl top node 
+
+ metrics server need to install before using this commands
+
+
+
