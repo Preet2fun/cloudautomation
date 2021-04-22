@@ -1,0 +1,19 @@
+# Apply custom script extensions for a Linux Virtual Machine on cloudshell using belwo command.
+az vm extension set --resource-group azuredemo --vm-name linuxvm --name customScript --publisher Microsoft.Azure.Extensions --settings customscript.json
+
+step 1 : In the GitHub account , create a repository and add a file named install_web.sh that has the following contents
+
+apt-get update -y && apt-get upgrade -y
+apt-get install -y nginx
+
+Step 2 : create a customscript.json file and add the following contents in it. then upload it
+         to cloud PowerShell
+
+{
+  "fileUris": ["https://raw.githubusercontent.com/alashro/sampleweb/master/install_web.sh"],
+  "commandToExecute": "./install_web.sh"
+}
+
+now apply above az vm extention command
+
+note : we have to select raw option in github to get github url.
