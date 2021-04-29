@@ -1,0 +1,50 @@
+configs:
+  prometheus:
+    external:
+      name: psmonitoring-prometheus
+networks:
+  app-net: {}
+services:
+  grafana:
+    deploy:
+      placement:
+        constraints:
+        - node.platform.os == linux
+    image: psmonitoring/grafana:5.2.1
+    networks:
+      app-net: {}
+    ports:
+    - published: 3000
+      target: 3000
+  java:
+    deploy:
+      endpoint_mode: vip
+      placement:
+        constraints:
+        - node.platform.os == linux
+      replicas: 4
+    image: preet2fun/java:v2
+    networks:
+      app-net: {}
+    ports:
+    - mode: ingress
+      published: 8080
+      target: 8080
+  prometheus:
+    configs:
+    - gid: '65534'
+      mode: 288
+      source: prometheus
+      target: /etc/prometheus/prometheus.yml
+      uid: '65534'
+    deploy:
+      placement:
+        constraints:
+        - node.platform.os == linux
+    image: preet2fun/prometheus:v2.3.1
+    networks:
+      app-net: {}
+    ports:
+    - published: 9090
+      target: 9090
+version: '3.4'

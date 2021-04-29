@@ -1,0 +1,43 @@
+#Collecting Metrics with Prometheus
+
+Prometheus is a polling server, which makes HTTP requests to REST APIs that serve metrics (you can also push data into Prometheus, but that's a less common pattern).
+You can run Prometheus directly on the server, but it's better to run it in Docker - that makes your Prometheus setup more portable, and it's easier for Prometheus to discover polling targets using the DNS server built into Docker.
+Prometheus is a great choice for your metrics server, because it has client libraries in most languages, and the Docker engine itself can expose metrics in Prometheus format.
+I show you how to configure service discovery in Prometheus for containers and for the Docker engine, both in standalone mode and in swarm mode.
+In swarm mode Docker supports container discovery with DNS queries which give you the IP addresses of all the containers for a service.
+
+
+# Step 1: run docker-config.sh command to create config object 
+# step 2: run belwo command to generate stack yaml file(do all stuff in main directory of project)
+# step 3: docker stack deploy -c docker-stack.yml <any stack name>
+
+
+docker-compose -f docker-compose.yml -f docker-compose-prod.yml config > docker-stack.yml
+(if this stack file is already there the pls skip this step)
+
+
+# run below command to create new image for in current directory
+
+docker image build -t preet2fun/java:v10 -f ./docker/java/v2/Dockerfile .
+
+use below command to see promethus export api end pint in container
+docker container run -d -P psmonitoring/java:v1
+docker container ls --last 1
+CONTAINER ID        IMAGE                  COMMAND             CREATED              STATUS              PORTS                     NAMES
+21f036ccc348        psmonitoring/java:v1   "catalina.sh run"   About a minute ago   Up About a minute   0.0.0.0:32768->8080/tcp   serene_brahmagupta
+
+browse on http://localhost:32768/metrics
+
+
+add belwo line in /etc/docker/daemon.json file and resatrt docker service to start getting docker
+related metrics
+
+"metrics-addr" : "0.0.0.0:50501",
+"experimental" : true
+
+# Running your monitoring components in lightweight Docker containers means you can run the same metrics dashboard in every environment, and the architecture of pulling metrics 
+# from containers means you get a consistent view over different levels of your solution.
+
+Application metrics - custom metrics you record which are valuable to see in the dashboard, like number of logged-in users or number of checked-out baskets.
+Runtime metrics - data already collected by the operating system or runtime host, like the requests per second handled by a web server, or the memory usage.
+Docker metrics - metrics from the container platform, including containers running in each state, node availability and healthchecks.

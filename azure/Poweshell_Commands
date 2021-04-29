@@ -28,3 +28,9 @@ az vm create --resource-group test-grp --name demovm2 --image win2019datacenter 
 
 # PowerShell command for quickly creating a virtual machine
 New-AzVm -ResourceGroupName test-grp -Name demovm3 -Location CentralUS -Image win2019datacenter
+
+# You can use the following sample PowerShell commands to change the size of a virtual machine
+
+$vm = Get-AzVM -ResourceGroupName azuredemo -VMName newvm
+$vm.HardwareProfile.VmSize ="Standard_DS1_v2"
+Update-AzVM -VM $vm -ResourceGroupName azuredemo
