@@ -1,0 +1,28 @@
+# use below command to configure awd cli profile
+
+C:\Users\Dhurvi>aws configure --profile iamadmin
+AWS Access Key ID [None]: AKIA22IPBDK2KZRYFCG5
+AWS Secret Access Key [None]: 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
+Default region name [None]: us-east-1
+Default output format [None]:
+
+C:\Users\Dhurvi>aws s3 ls --profile iamadmin
+2021-06-28 23:42:30 cf-templates-11xjqf29flnri-us-east-1
+
+# command for encrypt and decrypt data using KMS service
+
+# Generate Battleplans
+
+echo "find all the doggos, distract them with the yumz" > battleplans.txt
+
+# Encrypt
+
+aws kms encrypt --key-id alias/dataencryptmanu --plaintext fileb://battleplans.txt --output text --profile iamadmin --query CiphertextBlob > battleplans.base64
+
+certutil -decode battleplans.base64 not_battleplans.enc
+
+# Decrypt
+
+aws kms decrypt --ciphertext-blob fileb://not_battleplans.enc --output text --profile iamadmin --query Plaintext > decreyptedplans.base64
+
+certutil -decode decreyptedplans.base64 decryptedplans.txt
