@@ -1,0 +1,22 @@
+{    
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Deny",
+      "Action": [
+        "access-analyzer:DeleteAnalyzer",
+        "ec2:DisableEbsEncryptionByDefault",
+        "s3:PutAccountPublicAccessBlock"
+      ],
+      "Resource": [
+        "*"
+      ]
+    }
+  ]
+}
+
+The following SCP protects some important security settings from being turned off. None of these features are enabled by default and should be enabled as part of your initial account baseline. These features are:
+
+Access Analyzer: A service for identifying when resources are made public or granted access to untrusted accounts.
+Default EBS encryption: This encrypts the virtual hard-drives of your EC2s by default.
+S3 Block Public Access: Denies S3 buckets from being made public.

@@ -1,0 +1,13 @@
+{
+    "Version": "2012-10-17",
+    "Statement": {
+        "Effect": "Deny",
+        "Action": [
+            "events:DeleteRule",
+            "events:DisableRule",
+            "events:RemoveTargets"
+        ],
+        "Resource": "arn:aws:events:*:*:rule/default/CHANGEME"
+    }
+}
+
