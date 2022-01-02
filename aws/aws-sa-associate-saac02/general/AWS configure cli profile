@@ -1,8 +1,8 @@
 # use below command to configure awd cli profile
 
 C:\Users\Dhurvi>aws configure --profile iamadmin
-AWS Access Key ID [None]: AKIA22IPBDK2KZRYFCG5
-AWS Secret Access Key [None]: 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
+AWS Access Key ID [None]: ****************
+AWS Secret Access Key [None]: *********************
 Default region name [None]: us-east-1
 Default output format [None]:
 
