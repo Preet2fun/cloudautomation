@@ -1,0 +1,30 @@
+Resources:
+  s3Bucket:
+    Type: 'AWS::S3::Bucket'
+    Properties: 
+      #AccessControl: Private | PublicRead | PublicReadWrite | AuthenticatedRead | LogDeliveryWrite | BucketOwnerRead | BucketOwnerFullControl
+      BucketName: 'vzp-s3-151119'
+      #CorsConfiguration: 
+      #LifecycleConfiguration: 
+      #NotificationConfiguration: 
+      #VersioningConfiguration: 
+      #WebsiteConfiguration: 
+      Tags:
+        - Key: env
+          Value: dev
+  # https://docs.aws.amazon.com/ja_jp/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html
+  EC2InstancewithEBS: 
+    Type: AWS::EC2::Instance
+    Properties: 
+      InstanceType: "t2.micro"
+      ImageId: "ami-0ed9277fb7eb570c9"
+      KeyName: "vzp151119"
+      #BlockDeviceMappings: 
+      #- DeviceName: "/dev/sdm"
+      #  Ebs: 
+      #    VolumeType: "io1"
+      #    Iops: "200"
+      #    DeleteOnTermination: "false"
+      #    VolumeSize: "20"
+      #- DeviceName: "/dev/sdk"
+      #  NoDevice: {}
