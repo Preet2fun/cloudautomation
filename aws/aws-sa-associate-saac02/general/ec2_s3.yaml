@@ -1,9 +1,14 @@
+Parameters:
+  LatestAmiId:
+    Description: "AMI for EC2"
+    Type: 'AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>'
+    Default: '/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2'
 Resources:
   s3Bucket:
     Type: 'AWS::S3::Bucket'
     Properties: 
       #AccessControl: Private | PublicRead | PublicReadWrite | AuthenticatedRead | LogDeliveryWrite | BucketOwnerRead | BucketOwnerFullControl
-      BucketName: 'vzp-s3-151119'
+      #BucketName: 'vzp-s3-151119'
       #CorsConfiguration: 
       #LifecycleConfiguration: 
       #NotificationConfiguration: 
@@ -17,8 +22,8 @@ Resources:
     Type: AWS::EC2::Instance
     Properties: 
       InstanceType: "t2.micro"
-      ImageId: "ami-0ed9277fb7eb570c9"
-      KeyName: "vzp151119"
+      ImageId: !Ref "LatestAmiId"
+      #KeyName: "vzp151119"
       #BlockDeviceMappings: 
       #- DeviceName: "/dev/sdm"
       #  Ebs: 
